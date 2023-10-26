@@ -1,13 +1,13 @@
 @REM Author: Jakub Samojluk j.samojluk@jasam.eu
-@REM V 1.5
+@REM V 1.6
 @REM This program constantly pings a certain local IP address/
-@REM /and dumps results into PingOutput.txt
+@REM /and dumps results into textfile
 @ECHO OFF
 chcp 65001
-cls
+cls 
 
 @REM Header
-echo PingDump by CirtuitWorks Jakub Samojluk &echo. &echo.
+echo Pinger by CirtuitWorks Jakub Samojluk &echo. &echo.
 echo.
 
 @REM Variables
@@ -23,8 +23,8 @@ echo Ping [4] Custom address pool with summary every 4 pings
 
 choice /C 1234 /M Mode: 
 echo. &echo. Chosen mode: %ERRORLEVEL% 
-if %ERRORLEVEL% EQU 1 (echo Pinging %ip% &echo %ip%>PingDumpTmp.txt &start /min pingdump_helper.bat 0 &goto :DISCLAIMER)
-if %ERRORLEVEL% EQU 2 (echo Pinging %ip% &echo %ip%>PingDumpTmp.txt &start /min pingdump_helper.bat 1 &goto :DISCLAIMER)
+if %ERRORLEVEL% EQU 1 (echo Pinging %ip% &echo %ip%>PingerTMP &start /min Pinger_helper.bat 0 &goto :DISCLAIMER)
+if %ERRORLEVEL% EQU 2 (echo Pinging %ip% &echo %ip%>PingerTMP &start /min Pinger_helper.bat 1 &goto :DISCLAIMER)
 if %ERRORLEVEL% EQU 3 (set mode=0 &set /p numberOfInstances= Enter number of addresses to ping:)
 if %ERRORLEVEL% EQU 4 (set mode=1 &set /p numberOfInstances= Enter number of addresses to ping:)
 set instancesLeft=%numberOfInstances%
@@ -37,10 +37,10 @@ for /L %%x in (1, 1, %numberOfInstances%) do (
     echo|set /p= instance: %%x &echo|set /p= "/" &echo|set /p=%numberOfInstances%
     echo.
     set /p queriedAddress=Set IP:
-    ECHO !queriedAddress! > PingDumpTmp.txt
+    ECHO !queriedAddress! > PigerTMP
     echo pinging:  %queriedAddress
-    if %mode% EQU 0 (start /min pingdump_helper.bat 0)
-    if %mode% EQU 1 (start /min pingdump_helper.bat 1)   
+    if %mode% EQU 0 (start /min Pinger_helper.bat 0)
+    if %mode% EQU 1 (start /min Pinger_helper.bat 1)   
     )
 goto :DISCLAIMER
 
