@@ -14,3 +14,9 @@ files now contain timestamps
 - V 1.6 - New features
   - Added timestamp to each ping result
   - Files and variables name adjustment
+- V 1.7 - New features
+  - Network configuration now outputs to separate files
+- V 1.8 - New features
+  - Added Date to each ping result
+  - Added AppendString.bat. It can add user defined string to textfiles in AppendStringDATA folder
+  - Cleaned txt output
