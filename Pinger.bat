@@ -1,4 +1,5 @@
 @REM Author: Jakub Samojluk j.samojluk@jasam.eu
+@REM Recipient: JASAM sp. z o.o
 @REM V 1.8
 @REM This program constantly pings a certain local IP address/
 @REM /and dumps results into textfile
