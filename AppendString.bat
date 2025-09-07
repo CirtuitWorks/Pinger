@@ -1,5 +1,5 @@
 @REM Author: Jakub Samojluk j.samojluk@jasam.eu
-@REM V 1.8
+@REM V 1.9
 @REM This program appends an user defined string with comma and space to the beginning of every row
 @ECHO OFF
 chcp 65001
@@ -8,6 +8,7 @@ cls
 @REM Header
 echo PingDump by CirtuitWorks Jakub Samojluk &echo.
 echo AppendString module. &echo.
+echo Version: %programVersion%
 echo Define a string. This string + comma + space will be added at the beggining of every row of .TXT file
 echo _____________________________________________________________________________________________________
 echo.
