@@ -34,16 +34,16 @@ goto :defaults
 @REM call :header @REM BAD RECURSION
 echo Options:
 echo [1] Clear FINAL
-echo [2] Clear TMP
-echo [3] Clear BOTH
+echo [2] Clear RAW
+echo [3] Clear ALL
 echo [4] Set number of days
 echo [5] DEFAULTS
 echo.
 choice /C 12345 /M "Mode:" 
 echo. &echo. Chosen mode: %ERRORLEVEL% 
 if %ERRORLEVEL% EQU 1 (echo clearing FINAL &goto :clearFinal)
-if %ERRORLEVEL% EQU 2 (echo Clearing TMP &goto :clearTMP)
-if %ERRORLEVEL% EQU 3 (echo Clear &goto :clearBoth)
+if %ERRORLEVEL% EQU 2 (echo Clearing TMP &goto :clearRAW)
+if %ERRORLEVEL% EQU 3 (echo Clear &goto :clearALL)
 if %ERRORLEVEL% EQU 4 (echo Enter no. of days &goto :setArgument)
 if %ERRORLEVEL% EQU 5 (echo DEAFULTS &goto :defaults)
 
@@ -56,7 +56,7 @@ echo All done!
 timeout -T %PruneClearingMessageTimeout%
 exit
 
-:clearTMP
+:clearRAW
 @REM call :header
 echo PRUNING TMP FOLDER!
 echo. && echo RAW:
@@ -65,7 +65,7 @@ echo All done!
 timeout -T %PruneClearingMessageTimeout%
 exit
 
-:clearBoth
+:clearALL
 @REM call :header
 echo PRUNING BOTH FINAL AND WORKING FOLDERS!
 echo. && echo RAW:

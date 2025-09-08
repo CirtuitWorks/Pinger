@@ -74,15 +74,10 @@ for /f "usebackq delims=" %%a in ("%tmpDir%\%argumentAddress%%tmpFileSuffix%") d
     if !line!==2 set pingData=%%a
 )
 
-@REM if not %prevDate% == %DATE% (
-@REM     echo Starting automatic file trimming.
-@REM     start trimFiles.bat -%automaticFileTrimmingTimeout%
-@REM     set prevDate=%DATE%
-@REM )
 set pingData=%pingData%
 echo %pingData%
 echo %ExtIP%;%date%;%time%;%pingData% >> "%filePathTXT%"
-    timeout /NOBREAK /T 1 > NUL
+    timeout /NOBREAK /T %pingTime% > NUL
 goto :CONTINOUS
 
 :FRAGMENTED
